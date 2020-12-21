@@ -1,9 +1,9 @@
 import { belongsTo, Factory, hasMany, Model, Server, Response } from 'miragejs';
 
-export const handleErrors = (error: any) => {
+export const handleErrors = (error: any, message='An error occurred') => {
   return new Response(400, undefined, {
     data: {
-      message: 'An error occurred',
+      message,
       isError: true,
     },
   });
