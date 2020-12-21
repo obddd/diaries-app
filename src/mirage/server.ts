@@ -1,4 +1,13 @@
-import { belongsTo, Factory, hasMany, Model, Server } from 'miragejs';
+import { belongsTo, Factory, hasMany, Model, Server, Response } from 'miragejs';
+
+export const handleErrors = (error: any) => {
+  return new Response(400, undefined, {
+    data: {
+      message: 'An error occurred',
+      isError: true,
+    },
+  });
+};
 
 export const setupServer = (env?: string): Server => {
   return new Server({
@@ -30,7 +39,7 @@ export const setupServer = (env?: string): Server => {
     },
 
     routes(): void {
-        this.urlPrefix = 'https://diaries.app'
-    }
+      this.urlPrefix = 'https://diaries.app';
+    },
   });
 };
