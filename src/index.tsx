@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { setupServer } from './mirage/server';
+import store from './redux/store';
+import { Provider } from 'react-redux';
 
 if (process.env.NODE_ENV === 'development') {
   setupServer();
@@ -11,7 +13,9 @@ if (process.env.NODE_ENV === 'development') {
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
