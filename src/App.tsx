@@ -5,6 +5,7 @@ import { RootState } from './redux/rootReducer';
 
 const App: FC = () => {
   const Home = lazy(() => import('./components/Home'))
+  const Auth = lazy(() => import('./components/Auth'))
   const isLoggedIn = useSelector(
     (state: RootState) => state.auth.isAuthenticated
   );
@@ -13,7 +14,7 @@ const App: FC = () => {
       <Switch>
         <Route path="/">
           <Suspense fallback={<p>Loading...</p>}>
-            {isLoggedIn ? <Home /> : null}
+            {isLoggedIn ? <Home /> : <Auth/>}
           </Suspense>
         </Route>
       </Switch>
