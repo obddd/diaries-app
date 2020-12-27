@@ -1,20 +1,20 @@
 import React, { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { User } from '../interfaces/user.interface';
-import * as Yup from 'yup';
+// import * as Yup from 'yup';
 import http from '../api/api';
 import { savetoken, setAuthState } from '../redux/auth/authSlice';
 import { setUser } from '../redux/user/userSlice';
 import { AuthResponse } from '../mirage/routes/user';
 import { useAppDispatch } from '../redux/store';
 
-const schema = Yup.object().shape({
-  username: Yup.string()
-    .required('What? No username?')
-    .max(16, 'Username cannot be longer than 16 characters'),
-  password: Yup.string().required('Without a password, "None shall pass!"'),
-  email: Yup.string().email('Please provide a valid email address (abc@xy.z)'),
-});
+// const schema = Yup.object().shape({
+//   username: Yup.string()
+//     .required('What? No username?')
+//     .max(16, 'Username cannot be longer than 16 characters'),
+//   password: Yup.string().required('Without a password, "None shall pass!"'),
+//   email: Yup.string().email('Please provide a valid email address (abc@xy.z)'),
+// });
 
 const Auth: FC = () => {
   const { handleSubmit, register, errors } = useForm<User>({
